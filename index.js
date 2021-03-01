@@ -47,8 +47,8 @@ const movies = [
     rating: 9.5,
     actors: [
       { id: "01", name: "Gordon Liu" },
-      { id: "02", name: "Dat Gui"},
-      { id: "03", name: "Yo Gurl"},
+      { id: "02", name: "Dat Gui" },
+      { id: "03", name: "Yo Gurl" },
     ],
   },
   {
@@ -57,8 +57,8 @@ const movies = [
     releaseDate: "2002",
     rating: 9.9,
     actors: [
-      {id: "04", name: "Steve Oedekerk"},
-      {id: "05", name: "Lung Fei"}
+      { id: "04", name: "Steve Oedekerk" },
+      { id: "05", name: "Lung Fei" }
     ]
   }
 ]
@@ -70,16 +70,16 @@ const resolvers = {
     movies: () => {
       return movies;
     },
-    movie: (obj, {id}, context, info) => {
+    movie: (obj, { id }, context, info) => {
       console.log("id is", id);
       const foundMovie = movies.find((movie) => movie.id === id)
       return foundMovie
     }
   }
 }
- 
+
 // ------------------------------------------------------------------ APOLLO SERVER
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({ typeDefs, resolvers, introspection: true, playground: true });
 
 server.listen({
   port: process.env.PORT || 4000

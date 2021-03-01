@@ -1,9 +1,6 @@
 const { ApolloServer, gql } = require('apollo-server');
 
 // left off
-// -------------------------------------------------------- Video #10 <------
-
-// 
 
 // ----------------------------- Schema
 const typeDefs = gql`
@@ -79,7 +76,12 @@ const resolvers = {
 }
 
 // ------------------------------------------------------------------ APOLLO SERVER
-const server = new ApolloServer({ typeDefs, resolvers, introspection: true, playground: true });
+const server = new ApolloServer({ 
+  typeDefs, 
+  resolvers, 
+  introspection: true, // for dev only
+  playground: true // for dev only
+});
 
 server.listen({
   port: process.env.PORT || 4000
